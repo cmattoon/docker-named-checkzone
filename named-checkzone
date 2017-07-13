@@ -1,0 +1,6 @@
+#!/bin/bash
+ZONE_NAME=${1:?"argv[1] = zone name"}
+ZONE_FILE=${2:?"argv[2] = zone file"}
+IMG_NAME="cmattoon/named-checkzone"
+PWD=${PWD:-$(pwd)}
+docker run --rm -v $PWD:/data "${IMG_NAME}" $ZONE_NAME $ZONE_FILE
