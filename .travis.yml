@@ -1,0 +1,9 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t cmattoon/named-checkzone
+  - docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_PASSWORD"
+  - docker push cmattoon/named-checkzone:latest
